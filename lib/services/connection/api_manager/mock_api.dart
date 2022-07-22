@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_deriv_api/services/connection/call_manager/exceptions/call_manager_exception.dart';
 
@@ -107,7 +108,7 @@ import 'mock_data/user/verify_email_response.dart';
 /// This class is for handling mock API connection and calling mock APIs
 class MockAPI extends BaseAPI {
   /// Initializes
-  MockAPI(UniqueKey uniqueKey) : super(uniqueKey);
+  MockAPI({UniqueKey? uniqueKey}) : super(uniqueKey: uniqueKey ?? UniqueKey());
 
   @override
   Future<void> connect(
@@ -115,6 +116,7 @@ class MockAPI extends BaseAPI {
     ConnectionCallback? onDone,
     ConnectionCallback? onOpen,
     ConnectionCallback? onError,
+    bool printResponse = false,
   }) async =>
       true;
 
